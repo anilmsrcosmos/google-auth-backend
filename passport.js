@@ -10,7 +10,6 @@ module.exports = function(passport) {
       },
       function(accessToken, refreshToken, profile, done) {
         // TODO saving user to mongoose
-        console.log(accessToken);
         const user = {
           name: profile.displayName,
           email: profile.emails[0].value,
@@ -19,7 +18,6 @@ module.exports = function(passport) {
             token: accessToken
           }
         };
-        console.dir(user, { colors: true });
         return done(null, user);
       }
     )

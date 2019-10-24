@@ -10,8 +10,9 @@ router.route("/google").post(
       return res.status(401).send("User Not Authenticated");
     }
     req.auth = {
-      id: req.user.id
+      email: req.user.email
     };
+    console.log(req.email);
     next();
   },
   generateToken,
